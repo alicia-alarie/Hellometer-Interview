@@ -1,15 +1,11 @@
 from flask import Flask, render_template, request
 from werkzeug.utils import secure_filename
 import numpy as np
-
 import pandas as pd
-from bokeh.plotting import figure, show
-from bokeh.resources import CDN
-from bokeh.embed import file_html
+from bokeh.plotting import figure
 from bokeh.layouts import gridplot
 from bokeh.models import Range1d
 from bokeh.embed import components
-
 
 
 app = Flask(__name__)
@@ -23,7 +19,6 @@ def index():
         f = request.files['file']
         f.save(secure_filename(f.filename))
     return render_template('index.html',methods=['POST'])
-
 
 
 @app.route('/display', methods = ['GET', 'POST'])
@@ -105,15 +100,9 @@ def display():
         
         
         # make a grid to display all the graphs
-        grid = gridplot([p1, p2, p3, p4 ,p5, p6], ncols=3, sizing_mode="stretch_both")
+        grid = gridplot([p1, p2, p3, p4 ,p5, p6], ncols=3, sizing_mode="scale_both")
         script, div = components(grid)    
         return render_template('display.html', script=script, div=div)  
-
-        #show(grid)
-        #html = file_html(grid, CDN, "display.html")
-        
-        
-        return render_template('display.html',user_file=filename1)
 
 
 @app.route('/about')

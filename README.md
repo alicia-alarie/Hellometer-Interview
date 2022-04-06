@@ -7,3 +7,5 @@ Python3 is required. Please install python3 if it's not already installed!
 Pip is required to install the requirements. Please install pip if it's not already installed!
 
 Then run: pip install -r requirements.txt in your shell to ensure all necessary packages are installed.
+
+## View the app on heroku [here](https://afternoon-chamber-81859.herokuapp.com/)

@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- screen viewing settings for page -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- Page title shown in tab -->
+    <title>Hellometer Data Viewer</title>
+    
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+      <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">Home
+                    <span class="sr-only">(current)</span>
+                  </a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="/about">About
+                    <span class="sr-only">(current)</span>
+                  </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.7/css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet" type="text/css"/>
+    
+    <!-- CSS style properties of page, button, drag and drop area.. -->
+    <style type="text/css">
+        
+        body {
+        font-family: 'Helvetica';
+        text-align: center;
+        background-position: absolute;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-attachment: fixed;
+        }
+        
+        body, html {
+        height: 200%;
+        margin: 350;
+        }
+        
+        .color-change {
+        border-radius: 5px;
+        font-size: 20px;
+        padding: 14px 80px;
+        cursor: pointer;
+        color: #fff;
+        background-color: #00A6FF;
+        font-size: 1.5rem;
+        font-family: 'Helvetica';
+        font-weight: 100;
+        border: 1px solid #fff;
+        box-shadow: 2px 2px 5px #AFE9FF;
+        transition-duration: 0.6s;
+        -webkit-transition-duration: 0.6s;
+        -moz-transition-duration: 0.6s;
+        }
+
+        .color-change:hover {
+        color: #006398;
+        border: 1px solid #006398;
+        box-shadow: 2px 2px 20px #AFE9FF;
+        }
+
+        button.color-change {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        }
+        
+        .custom-file-input::-webkit-file-upload-button {
+        visibility: hidden;
+        display:none;
+        }
+        
+        .custom-file-input::before {
+        content: 'Select an Image';
+        display: inline-block;
+        text-align: center;
+        margin: auto;
+        margin-left: 60px;
+        background: linear-gradient(top, #f9f9f9, #e3e3e3);
+        border: 1px solid #999;
+        border-radius: 3px;
+        padding: 5px 15px;
+        outline: none;
+        white-space: nowrap;
+        -webkit-user-select: none;
+        cursor: pointer;
+        text-shadow: 1px 1px #fff;
+        font-weight: 700;
+        font-size: 10pt;
+        }
+        
+        .custom-file-input:hover::before {
+        border-color: black;
+        }
+        
+        .custom-file-input:active::before {
+        background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+        }
+        
+        p.custom-file-input {
+        margin-left: 300px;
+        }
+        
+        .drop-zone {
+          max-width: 200px;
+          height: 200px;
+          padding: 25px;
+          display: inline-block;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          font-family: "Quicksand", sans-serif;
+          font-weight: 500;
+          font-size: 20px;
+          cursor: pointer;
+          color: #cccccc;
+          border: 4px dashed #009578;
+          border-radius: 10px;
+        }
+
+        .drop-zone--over {
+          border-style: solid;
+        }
+
+        .drop-zone__input {
+          display: none;
+        }
+
+        .drop-zone__thumb {
+          width: 100%;
+          height: 100%;
+          border-radius: 10px;
+          overflow: hidden;
+          background-color: #cccccc;
+          background-size: cover;
+          position: relative;
+        }
+
+        .drop-zone__thumb::after {
+          content: attr(data-label);
+          position: relative;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          padding: 25px;
+          color: #ffffff;
+          background: rgba(0, 0, 0, 0.75);
+          font-size: 14px;
+          text-align: center;
+        }
+
+
+      </style>
+  </head>
+  <body>
+    
+    <!-- page layout with drop zone and submit buttons -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+            <p></p>
+            
+          <h4>Upload a csv file..</h4>
+            <p></p>
+            <form action = "display" method = "POST" enctype = "multipart/form-data">
+              
+              <!-- DROP ZONE -->
+              <div class="drop-zone">
+                <span class="drop-zone__prompt">Drop file here or click to upload</span>
+                <center>
+                <input type="file" name="file" class="drop-zone__input">
+                </center>
+              </div>
+              
+              <!-- SUBMIT BUTTON -->
+                <p></p>
+                <p><input type="submit" class="color-change" value="Submit"></p>
+                
+            </form>
+        </div>
+      </div>
+    </div>
+      
+      
+  <!-- drop zone script -->
+  <script>
+  
+  document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
+  const dropZoneElement = inputElement.closest(".drop-zone");
+
+  dropZoneElement.addEventListener("click", (e) => {
+    inputElement.click();
+  });
+
+  inputElement.addEventListener("change", (e) => {
+    if (inputElement.files.length) {
+      updateThumbnail(dropZoneElement, inputElement.files[0]);
+    }
+  });
+
+  dropZoneElement.addEventListener("dragover", (e) => {
+    e.preventDefault();
+    dropZoneElement.classList.add("drop-zone--over");
+  });
+
+  ["dragleave", "dragend"].forEach((type) => {
+    dropZoneElement.addEventListener(type, (e) => {
+      dropZoneElement.classList.remove("drop-zone--over");
+    });
+  });
+  
+  dropZoneElement.addEventListener("drop", (e) => {
+    e.preventDefault();
+  
+    if (e.dataTransfer.files.length) {
+      inputElement.files = e.dataTransfer.files;
+      updateThumbnail(dropZoneElement, e.dataTransfer.files[0]);
+    }
+
+    dropZoneElement.classList.remove("drop-zone--over");
+      });
+    });
+    
+    /**
+     * Updates the thumbnail on a drop zone element.
+     *
+     * @param {HTMLElement} dropZoneElement
+     * @param {File} file
+     */
+    function updateThumbnail(dropZoneElement, file) {
+      let thumbnailElement = dropZoneElement.querySelector(".drop-zone__thumb");
+    
+      // First time - remove the prompt
+      if (dropZoneElement.querySelector(".drop-zone__prompt")) {
+        dropZoneElement.querySelector(".drop-zone__prompt").remove();
+      }
+    
+      // First time - there is no thumbnail element, so lets create it
+      if (!thumbnailElement) {
+        thumbnailElement = document.createElement("div");
+        thumbnailElement.classList.add("drop-zone__thumb");
+        dropZoneElement.appendChild(thumbnailElement);
+      }
+    
+      thumbnailElement.dataset.label = file.name;
+    
+      // Show thumbnail for image files
+      if (file.type.startsWith("image/")) {
+        const reader = new FileReader();
+    
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+          thumbnailElement.style.backgroundImage = `url('${reader.result}')`;
+        };
+      } else {
+        thumbnailElement.style.backgroundImage = null;
+      }
+    }
+    
+    </script>
+    
+    
+    
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.7/js/fileinput.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.7/themes/fa/theme.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+  </body>
+</html>

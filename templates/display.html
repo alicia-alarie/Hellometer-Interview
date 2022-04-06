@@ -36,11 +36,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.7/css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet" type="text/css"/>
-    <link href="https://cdn.bokeh.org/bokeh/release/bokeh-0.12.6.min.css" rel="stylesheet" type="text/css">
-    <link href="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-0.12.6.min.css" rel="stylesheet" type="text/css">
-
-    <script src="https://cdn.bokeh.org/bokeh/release/bokeh-0.12.6.min.js"></script>
-    <script src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-0.12.6.min.js"></script>
 
   
   </head>
@@ -49,12 +44,20 @@
       <div class="row">
         <div class="col-lg-12 text-left">
           <h2></h2>
-          
+          {{ script|safe }}
+            {{ div|safe }}
           
           <p><a href="/">Go Back</a></p>
         </div>
       </div>
     </div>
+    
+    <link href="https://cdn.bokeh.org/bokeh/release/bokeh-2.4.2.min.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.4.2.min.css" rel="stylesheet" type="text/css">
+
+    <script src="https://cdn.bokeh.org/bokeh/release/bokeh-2.4.2.min.js"></script>
+    <script src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.4.2.min.js"></script>
+   
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

@@ -10,5 +10,6 @@ Then run: `pip install -r requirements.txt` in your shell to ensure all necessar
 
 To run locally : `python3 app.py` in your shell and copy and paste the link displayed in your browser
 
+Example upload file : location27_march22-29.csv
 
 ## View the App on Heroku [here](https://afternoon-chamber-81859.herokuapp.com/)

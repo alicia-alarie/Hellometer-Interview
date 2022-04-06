@@ -34,8 +34,8 @@ def display():
         print('file uploaded successfully')
         
         
-        filename='/Volumes/GoogleDrive/My Drive/Interviews/Hellometer_Interview/flask-framework-master/'+secure_filename(f.filename)
-        print(filename)
+        #filename='/Volumes/GoogleDrive/My Drive/Interviews/Hellometer_Interview/flask-framework-master/'+secure_filename(f.filename)
+        #print(filename)
         filename1=secure_filename(f.filename)
         
         df = pd.read_csv (filename1)
@@ -110,7 +110,7 @@ def display():
         html = file_html(grid, CDN, "display.html")
         
         
-        return render_template('display.html',user_image=filename)
+        return render_template('display.html',user_image=filename1)
 
 
 @app.route('/about')
@@ -118,4 +118,4 @@ def about():
   return render_template('about.html')
 
 if __name__ == '__main__':
-  app.run()#port=33508
+  app.run()#ort=33508
